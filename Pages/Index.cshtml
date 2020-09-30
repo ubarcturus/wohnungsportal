@@ -1,10 +1,20 @@
 ﻿@page
+@using Wohnungsportal.Models
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Elephant";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<h1 class="display-4">Elephant</h1>
+	<p>Learn about <a href="https://smile.amazon.de/dp/B002MWSY2A/ref=cm_sw_r_tw_dp_x_rcjDFb6T5R21A">Lalilu</a>.</p>
 </div>
+
+<div>
+	<button type="submit">Search</button>
+</div>
+@foreach (Apartment apartment in Model.Apartments) {
+<div class="card">
+	<img class="card-img-top" src="" alt="image" />
+</div>
+}
