@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Reflection.Metadata;
 
 namespace Wohnungsportal.Models
 {
-	public class Apartments
-	{
+    public class Apartment
+    {
 		public int Id { get; set; }
 
 		[Display(Name = "Anzahl Zimmer")] public int NRooms { get; set; }
@@ -15,7 +14,7 @@ namespace Wohnungsportal.Models
 
 		[Display(Name = "Ort")] public string Location { get; set; }
 
-		[Display(Name = "Bild")] public Blob Picture { get; set; }
+		[Display(Name = "Bild")] public string PictureName { get; set; }
 
 		[Display(Name = "Küche")] public bool Kitchen { get; set; }
 

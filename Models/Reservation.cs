@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Wohnungsportal.Models
 {
-	public class Reservations
-	{
+    public class Reservation
+    {
 		public int Id { get; set; }
 
 		[DataType(DataType.Date)] public DateTime Start { get; set; }
