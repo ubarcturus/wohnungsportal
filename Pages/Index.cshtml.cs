@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Wohnungsportal.Data;
@@ -13,16 +14,16 @@ namespace Wohnungsportal.Pages
 
         public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context)
         {
-			_logger = logger;
-			_context = context;
-		}
+            _logger = logger;
+            _context = context;
+        }
 
 		public List<Apartment> Apartments { get; set; }
 
-		public void OnGet()
+        public void OnGet()
         {
             Apartments = new List<Apartment>();
-            //Apartments = _context;
+            Apartments = _context.Apartment.Where(_ => true).ToList();
         }
-	}
+    }
 }

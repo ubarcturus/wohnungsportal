@@ -11,10 +11,24 @@
 </div>
 
 <div>
-	<button type="submit">Search</button>
+	<button class="mb-3" type="submit">Search</button>
 </div>
-@foreach (Apartment apartment in Model.Apartments) {
-<div class="card">
-	<img class="card-img-top" src="" alt="image" />
+<div class="card-columns">
+	@foreach (Apartment apartment in Model.Apartments) {
+	<div class="card mb-3">
+		<img class="card-img-top" src="@(apartment.PictureName)" alt="image" />
+		<div class="card-body">
+			<p class="card-text">@(apartment.Location)</p>
+			@if (apartment.Kitchen || apartment.Wlan == true) {
+			<ul class="list-group">
+				@if (apartment.Kitchen == true) {
+				<li class="list-group-item">Küche</li>
+				} @if (apartment.Wlan == true) {
+				<li class="list-group-item">WLAN</li>
+				}
+			</ul>
+			}
+		</div>
+	</div>
+	}
 </div>
-}
