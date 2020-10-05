@@ -17,16 +17,33 @@
 	@if (Model.Apartments != null) { @foreach (Apartment apartment in Model.Apartments) {
 	<div class="card mb-3">
 		<img class="card-img-top" src="@(apartment.PictureName)" alt="image" />
-		<div class="card-body">
-			<p class="card-text">@(apartment.Location)</p>
-			<ul class="list-group">
-				@if (apartment.Kitchen) {
-				<li class="list-group-item">Küche</li>
-				} @if (apartment.Wlan) {
-				<li class="list-group-item">WLAN</li>
-				}
-			</ul>
-		</div>
+        <div class="card-body">
+            <p class="¨card-text"><strong>Standort:</strong> @(apartment.Location)</p>
+            <p class="¨card-text"><strong>Preis pro Nacht:</strong> CHF @(apartment.Price).-</p>
+            <p class="¨card-text"><strong>Anzahl Zimmer:</strong> @(apartment.NRooms)</p>
+            @if (apartment.Kitchen || apartment.Wlan)
+            {
+                <p class="card-text">
+                    <strong>Ausstattung:</strong>
+                    @if (apartment.Kitchen && apartment.Wlan)
+                    {
+                        <span>Küche, WLAN</span>
+                    }
+                    else
+                    {
+                        @if (apartment.Kitchen)
+                        {
+                            <span>Küche</span>
+                        }
+                        @if (apartment.Wlan)
+                        {
+                            <span>WLAN</span>
+                        }
+                    }
+                </p>
+                
+            }
+        </div>
 	</div>
 	} }
 </div>
