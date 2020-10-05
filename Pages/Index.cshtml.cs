@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -10,20 +11,26 @@ namespace Wohnungsportal.Pages
 	public class IndexModel : PageModel
 	{
 		private readonly ILogger<IndexModel> _logger;
-        private readonly ApplicationDbContext _context;
+		private readonly ApplicationDbContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context)
-        {
-            _logger = logger;
-            _context = context;
-        }
+		public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context)
+		{
+			_logger = logger;
+			_context = context;
+		}
 
-		public List<Apartment> Apartments { get; set; }
+        public List<Apartment> Apartments { get; private set; }
 
         public void OnGet()
         {
-            Apartments = new List<Apartment>();
-            Apartments = _context.Apartment.Where(_ => true).ToList();
+            try
+            {
+                Apartments = _context.Apartment.ToList();
+            }
+            catch (Exception exception)
+            {
+                _logger.LogWarning($"Och ne. {exception.Message}");
+            }
         }
     }
 }
