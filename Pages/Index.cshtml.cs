@@ -21,7 +21,7 @@ namespace Wohnungsportal.Pages
 
 		public List<Apartment> Apartments { get; private set; }
 
-		public async void OnGetAsync()
+		public void OnGet()
 		{
 			try
 			{
