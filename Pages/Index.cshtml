@@ -15,7 +15,7 @@
 </div>
 <div class="card-columns">
 	@if (Model.Apartments != null) { @foreach (Apartment apartment in Model.Apartments) {
-	<div class="card mb-3">
+	<div class="card mb-3" onclick="showDetails(@(apartment.Id))">
 		<img class="card-img-top" src="@(apartment.PictureName)" alt="image" />
         <div class="card-body">
             <p class="¨card-text"><strong>Standort:</strong> @(apartment.Location)</p>
