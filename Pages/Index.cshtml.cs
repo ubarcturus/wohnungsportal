@@ -10,8 +10,8 @@ namespace Wohnungsportal.Pages
 {
 	public class IndexModel : PageModel
 	{
-		private readonly ILogger<IndexModel> _logger;
 		private readonly ApplicationDbContext _context;
+		private readonly ILogger<IndexModel> _logger;
 
 		public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context)
 		{
@@ -19,18 +19,18 @@ namespace Wohnungsportal.Pages
 			_context = context;
 		}
 
-        public List<Apartment> Apartments { get; private set; }
+		public List<Apartment> Apartments { get; private set; }
 
-        public void OnGet()
-        {
-            try
-            {
-                Apartments = _context.Apartment.ToList();
-            }
-            catch (Exception exception)
-            {
-                _logger.LogWarning($"Och ne. {exception.Message}");
-            }
-        }
-    }
+		public async void OnGetAsync()
+		{
+			try
+			{
+				Apartments = _context.Apartment.ToList();
+			}
+			catch (Exception exception)
+			{
+				_logger.LogWarning($"Och ne. {exception.Message}");
+			}
+		}
+	}
 }

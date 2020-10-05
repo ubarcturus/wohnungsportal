@@ -2,13 +2,13 @@
 
 namespace Wohnungsportal.Models
 {
-    public class Apartment
-    {
+	public class Apartment
+	{
 		public int Id { get; set; }
 
 		[Display(Name = "Anzahl Zimmer")] public int NRooms { get; set; }
 
-		[Display(Name = "Ausstattung")] public int Furnishing { get; set; }
+		[Display(Name = "Beschreibung")] public string Description { get; set; }
 
 		[Display(Name = "Preis")] public float Price { get; set; }
 

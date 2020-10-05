@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-
 using Wohnungsportal.Models;
 
 namespace Wohnungsportal.Data
@@ -13,7 +12,6 @@ namespace Wohnungsportal.Data
 		}
 
 		public DbSet<Apartment> Apartment { get; set; }
-		public DbSet<Furnishing> Furnishing { get; set; }
-		public DbSet<Reservation> Reservation { get; set; }
-	}
+        public DbSet<Reservation> Reservation { get; set; }
+    }
 }

@@ -6,27 +6,34 @@
 }
 
 <div class="text-center">
-	<h1 class="display-4">Elephant</h1>
-	<p>Learn about <a href="https://smile.amazon.de/dp/B002MWSY2A/ref=cm_sw_r_tw_dp_x_rcjDFb6T5R21A">Lalilu</a>.</p>
+    <h1 class="display-4">Elephant</h1>
+    <p>Learn about <a href="https://smile.amazon.de/dp/B002MWSY2A/ref=cm_sw_r_tw_dp_x_rcjDFb6T5R21A">Lalilu</a>.</p>
 </div>
 
 <div>
-	<button class="mb-3" type="submit">Search</button>
+    <button class="mb-3" type="submit">Search</button>
 </div>
 <div class="card-columns">
-	@if (Model.Apartments != null) { @foreach (Apartment apartment in Model.Apartments) {
-	<div class="card mb-3">
-		<img class="card-img-top" src="@(apartment.PictureName)" alt="image" />
-		<div class="card-body">
-			<p class="card-text">@(apartment.Location)</p>
-			<ul class="list-group">
-				@if (apartment.Kitchen) {
-				<li class="list-group-item">Küche</li>
-				} @if (apartment.Wlan) {
-				<li class="list-group-item">WLAN</li>
-				}
-			</ul>
-		</div>
-	</div>
-	} }
+    @if (Model.Apartments != null)
+    {
+        @foreach (Apartment apartment in Model.Apartments)
+        {
+            <div class="card mb-3">
+                <img class="card-img-top" src="@(apartment.PictureName)" alt="image"/>
+                <div class="card-body">
+                    <p class="card-text">@(apartment.Location)</p>
+                    <ul class="list-group">
+                        @if (apartment.Kitchen)
+                        {
+                            <li class="list-group-item">Küche</li>
+                        }
+                        @if (apartment.Wlan)
+                        {
+                            <li class="list-group-item">WLAN</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+    }
 </div>
