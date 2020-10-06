@@ -14,36 +14,45 @@
 	<button class="mb-3" type="submit">Search</button>
 </div>
 <div class="card-columns">
-	@if (Model.Apartments != null) { @foreach (Apartment apartment in Model.Apartments) {
-	<div class="card mb-3" onclick="showDetails(@(apartment.Id))">
-		<img class="card-img-top" src="@(apartment.PictureName)" alt="image" />
-        <div class="card-body">
-            <p class="¨card-text"><strong>Standort:</strong> @(apartment.Location)</p>
-            <p class="¨card-text"><strong>Preis pro Nacht:</strong> CHF @(apartment.Price).-</p>
-            <p class="¨card-text"><strong>Anzahl Zimmer:</strong> @(apartment.NRooms)</p>
-            @if (apartment.Kitchen || apartment.Wlan)
-            {
-                <p class="card-text">
-                    <strong>Ausstattung:</strong>
-                    @if (apartment.Kitchen && apartment.Wlan)
+    @if (Model.Apartments != null) { @foreach (Apartment apartment in Model.Apartments) {
+        <div class="card mb-3" onclick="showDetails(@(apartment.Id))">
+            <img class="card-img-top" src="@(apartment.PictureName)" alt="image"/>
+            <div class="card-body">
+                <ul>
+                    <li><strong>Standort: </strong>@(apartment.Location)</li>
+                    <li><strong>Preis pro Nacht: </strong>CHF @(apartment.Price).-</li>
+                    <li><strong>Anzahl Zimmer: </strong>@(apartment.NRooms)</li>
+
+                    @if (apartment.Kitchen || apartment.Wlan)
                     {
-                        <span>Küche, WLAN</span>
+                        <li class="card-text">
+                            <strong>Ausstattung:</strong>
+                            @if (apartment.Kitchen && apartment.Wlan)
+                            {
+                                <span>Küche, WLAN</span>
+                            }
+                            else
+                            {
+                                @if (apartment.Kitchen)
+                                {
+                                    <span>Küche</span>
+                                }
+                                @if (apartment.Wlan)
+                                {
+                                    <span>WLAN</span>
+                                }
+                            }
+                        </li>
+
                     }
-                    else
-                    {
-                        @if (apartment.Kitchen)
-                        {
-                            <span>Küche</span>
-                        }
-                        @if (apartment.Wlan)
-                        {
-                            <span>WLAN</span>
-                        }
-                    }
-                </p>
-                
-            }
+                </ul>
+            </div>
         </div>
-	</div>
-	} }
+    } }
 </div>
+
+<script>
+    function showDetails(id) {
+        window.location = "/Details?id=" + id;
+    }
+</script>
