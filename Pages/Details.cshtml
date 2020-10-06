@@ -11,6 +11,7 @@
     <h4>Apartment</h4>
     <hr/>
     <img class="card-img-top" style="width: 18rem" src="@Html.DisplayFor(model => model.Apartment.PictureName)" alt="Image" />
+    <br/>
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Apartment.NRooms)
@@ -50,6 +51,7 @@
         </dd>
     </dl>
 </div>
+<a asp-page="./Reserve" asp-route-id="@Model.Apartment.Id">Reservieren</a>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Apartment.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
