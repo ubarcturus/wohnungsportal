@@ -1,5 +1,6 @@
 ﻿@page
 @using Wohnungsportal.Models
+@using Microsoft.CodeAnalysis
 @model IndexModel
 @{
     ViewData["Title"] = "Elephant";
@@ -20,11 +21,11 @@
 			<img class="card-img-top" src="@(apartment.PictureName)" alt="image" />
 		</a>
 		<div class="card-body">
-			<ul style="list-style-type:none">
-				<li><b>Standort: </b>@(apartment.Location)</li>
-				<li><b>Preis pro Nacht: </b>CHF @(apartment.Price).-</li>
-				<li><b>Anzahl Zimmer: </b>@(apartment.NRooms)</li>
-				<li class="card-text">
+			<ul style="list-style-type: none; margin-left: -39px">
+				<li><b>@Html.DisplayNameFor(model => model.Apartments[0].Location):</b> @(apartment.Location)</li>
+				<li><b>@Html.DisplayNameFor(model => model.Apartments[0].NRooms):</b> @(apartment.NRooms)</li>
+				<li><b>@Html.DisplayNameFor(model => model.Apartments[0].Price):</b> CHF&nbsp;@(apartment.Price).-</li>
+				<li>
 					@if (apartment.Kitchen && apartment.Wlan) {
 					<span><b>Ausstattung:</b> Küche, WLAN</span>
 					} else if (apartment.Kitchen) {
@@ -34,7 +35,7 @@
 					}
 				</li>
 			</ul>
-			<a class="card-link" href="/Details?id=@(apartment.Id)">Details</a>
+			<a class="card-link btn btn-primary" href="/Details?id=@(apartment.Id)">Details</a>
 		</div>
 	</div>
 	} }
@@ -42,6 +43,6 @@
 
 <script>
 	function showDetails(id) {
-	    window.location = "/Details?id=" + id;
+	    window.location = `/Details?id=${id}`;
 	}
 </script>

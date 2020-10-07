@@ -1,6 +1,5 @@
 ﻿@page
 @model Wohnungsportal.Pages.DetailsModel
-
 @{
     ViewData["Title"] = "Details";
 }
@@ -8,51 +7,61 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Apartment</h4>
-    <hr/>
-    <img class="card-img-top" style="width: 18rem" src="@Html.DisplayFor(model => model.Apartment.PictureName)" alt="Image" />
-    <br/>
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Apartment.NRooms)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Apartment.NRooms)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Apartment.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Apartment.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Apartment.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Apartment.Price)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Apartment.Location)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Apartment.Location)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Apartment.Kitchen)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Apartment.Kitchen)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Apartment.Wlan)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Apartment.Wlan)
-        </dd>
-    </dl>
+	<h4>Apartment</h4>
+	<hr />
+	<img
+		class="card-img-top"
+		style="width: 18rem"
+		src="@Html.DisplayFor(model => model.Apartment.PictureName)"
+		alt="Image"
+	/>
+	<br />
+	<dl class="row">
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.Apartment.Location):
+		</dt>
+		<dd class="col-sm-9">
+			@Html.DisplayFor(model => model.Apartment.Location)
+		</dd>
+
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.Apartment.NRooms):
+		</dt>
+		<dd class="col-sm-9">
+			@Html.DisplayFor(model => model.Apartment.NRooms)
+		</dd>
+
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.Apartment.Description):
+		</dt>
+		<dd class="col-sm-9">
+			@Html.DisplayFor(model => model.Apartment.Description)
+		</dd>
+
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.Apartment.Price):
+		</dt>
+		<dd class="col-sm-9">
+			CHF&nbsp;@Html.DisplayFor(model => model.Apartment.Price).-
+		</dd>
+
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.Apartment.Kitchen):
+		</dt>
+		<dd class="col-sm-9">
+			@Html.DisplayFor(model => model.Apartment.Kitchen)
+		</dd>
+
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.Apartment.Wlan):
+		</dt>
+		<dd class="col-sm-9">
+			@Html.DisplayFor(model => model.Apartment.Wlan)
+		</dd>
+	</dl>
 </div>
-<a asp-page="./Reserve" asp-route-id="@Model.Apartment.Id">Reservieren</a>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Apartment.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+	<a class="btn btn-primary" asp-page="./Reserve" asp-route-id="@Model.Apartment.Id">Reservieren</a>
+	@* <a asp-page="./Edit" asp-route-id="@Model.Apartment.Id">Edit</a> | *@
+	<a asp-page="./Index">Back to List</a>
 </div>

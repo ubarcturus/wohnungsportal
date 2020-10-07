@@ -10,7 +10,7 @@ namespace Wohnungsportal.Models
 
 		[Display(Name = "Beschreibung")] public string Description { get; set; }
 
-		[Display(Name = "Preis")] public float Price { get; set; }
+		[Display(Name = "Preis pro Nacht")] public float Price { get; set; }
 
 		[Display(Name = "Ort")] public string Location { get; set; }
 
