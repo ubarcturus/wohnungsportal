@@ -11,7 +11,7 @@ namespace Wohnungsportal.Models
 
 		[DataType(DataType.Date)] public DateTime End { get; set; }
 
-		public int IdentityUserId { get; set; }
+		public string IdentityUserId { get; set; }
 
 		public int ApartmentId { get; set; }
 	}

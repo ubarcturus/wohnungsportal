@@ -21,21 +21,22 @@
 			<img class="card-img-top" src="@(apartment.PictureName)" alt="image" />
 		</a>
 		<div class="card-body">
-			<ul style="list-style-type: none; margin-left: -39px">
-				<li><b>@Html.DisplayNameFor(model => model.Apartments[0].Location):</b> @(apartment.Location)</li>
-				<li><b>@Html.DisplayNameFor(model => model.Apartments[0].NRooms):</b> @(apartment.NRooms)</li>
-				<li><b>@Html.DisplayNameFor(model => model.Apartments[0].Price):</b> CHF&nbsp;@(apartment.Price).-</li>
-				<li>
-					@if (apartment.Kitchen && apartment.Wlan) {
-					<span><b>Ausstattung:</b> Küche, WLAN</span>
-					} else if (apartment.Kitchen) {
-					<span><b>Ausstattung:</b> Küche</span>
-					} else if (apartment.Wlan) {
-					<span><b>Ausstattung:</b> WLAN</span>
-					}
-				</li>
-			</ul>
-			<a class="card-link btn btn-primary" href="/Details?id=@(apartment.Id)">Details</a>
+            <ul style="list-style-type: none; margin-left: -39px">
+                <li><b>@Html.DisplayNameFor(model => model.Apartments[0].Location):</b> @(apartment.Location)</li>
+                <li><b>@Html.DisplayNameFor(model => model.Apartments[0].NRooms):</b> @(apartment.NRooms)</li>
+                <li><b>@Html.DisplayNameFor(model => model.Apartments[0].Price):</b> CHF&nbsp;@(apartment.Price).-</li>
+                <li>
+                    @if (apartment.Kitchen && apartment.Wlan) {
+                        <span><b>Ausstattung:</b> Küche, WLAN</span>
+                    } else if (apartment.Kitchen) {
+                        <span><b>Ausstattung:</b> Küche</span>
+                    } else if (apartment.Wlan) {
+                        <span><b>Ausstattung:</b> WLAN</span>
+                    }
+                </li>
+            </ul>
+            <p style="color: red">Reserviert</p>
+            <a class="card-link btn btn-primary" href="/Details?id=@(apartment.Id)">Details</a>
 		</div>
 	</div>
 	} }
