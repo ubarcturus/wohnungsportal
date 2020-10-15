@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Wohnungsportal.Models
 {
@@ -19,5 +20,7 @@ namespace Wohnungsportal.Models
 		[Display(Name = "Küche")] public bool Kitchen { get; set; }
 
 		[Display(Name = "WLAN")] public bool Wlan { get; set; }
+
+		[NotMapped] public bool IsReserved { get; set; }
 	}
 }

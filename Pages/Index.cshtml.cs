@@ -21,12 +21,28 @@ namespace Wohnungsportal.Pages
         }
 
         public List<Apartment> Apartments { get; private set; }
+        public List<Reservation> Reservations { get; private set; }
 
         public async Task<PageResult> OnGetAsync()
         {
             try
             {
                 Apartments = await _context.Apartment.ToListAsync();
+                Reservations = await _context.Reservation.ToListAsync();
+
+                foreach (var reservation in Reservations)
+                {
+	                foreach (var apartment in Apartments)
+	                {
+		                if (apartment.Id == reservation.ApartmentId)
+		                {
+			                if (reservation.Start <= DateTime.Now.Date && reservation.End >= DateTime.Now.Date)
+			                {
+				                apartment.IsReserved = true;
+			                }
+		                }
+	                }
+                }
             }
             catch (Exception exception)
             {
