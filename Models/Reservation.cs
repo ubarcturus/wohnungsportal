@@ -7,9 +7,13 @@ namespace Wohnungsportal.Models
     {
 		public int Id { get; set; }
 
-		[DataType(DataType.Date)] public DateTime Start { get; set; }
+		[DataType(DataType.Date)] 
+		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd.MM.yyyy}")] 
+		public DateTime Start { get; set; }
 
-		[DataType(DataType.Date)] public DateTime End { get; set; }
+		[DataType(DataType.Date)] 
+		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd.MM.yyyy}")] 
+		public DateTime End { get; set; }
 
 		public string IdentityUserId { get; set; }
 

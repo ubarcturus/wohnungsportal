@@ -37,7 +37,7 @@ namespace Wohnungsportal.Pages.Reservations
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(int id)
         {
-
+            // checks if there is an overlapping reservation
 	        bool reserved = _context.Reservation.Any(r => r.ApartmentId == id && Reservation.Start <= r.End && Reservation.End >= r.Start);
 
 	        if (reserved)

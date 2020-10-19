@@ -1,4 +1,6 @@
 ﻿@page
+@using Wohnungsportal.Models
+@using Microsoft.EntityFrameworkCore.Metadata.Conventions
 @model Wohnungsportal.Pages.DetailsModel
 @{
     ViewData["Title"] = "Details";
@@ -55,10 +57,23 @@
 		<dt class="col-sm-3">
 			@Html.DisplayNameFor(model => model.Apartment.Wlan):
 		</dt>
-		<dd class="col-sm-9">
-			@Html.DisplayFor(model => model.Apartment.Wlan)
-		</dd>
-	</dl>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Apartment.Wlan)
+        </dd>
+		
+        @if (Model.Reservation.Count > 0)
+        {
+            <dt class="col-sm-3">
+                Reservierungen:
+            </dt>
+            <dd class="col-sm-9">
+				@foreach (Reservation reservation in Model.Reservation)
+				{
+				    <span>@reservation.Start - @reservation.End</span><br/>
+				}
+            </dd>
+        }
+    </dl>
 </div>
 <div>
 	<a class="btn btn-primary" asp-page="/Reservations/Create" asp-route-id="@Model.Apartment.Id">Reservieren</a>
