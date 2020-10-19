@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Wohnungsportal.Data;
 using Wohnungsportal.Models;
 
@@ -36,6 +37,15 @@ namespace Wohnungsportal.Pages.Reservations
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(int id)
         {
+
+	        bool reserved = _context.Reservation.Any(r => r.ApartmentId == id && Reservation.Start <= r.End && Reservation.End >= r.Start);
+
+	        if (reserved)
+	        {
+		        ModelState.AddModelError("", "Diese Wohnung ist in Ihrem angegebenen Zeitraum bereits reserviert.");
+		        return Page();
+	        }
+
             if (!ModelState.IsValid)
             {
                 return Page();
