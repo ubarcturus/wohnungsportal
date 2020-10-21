@@ -69,7 +69,7 @@
             <dd class="col-sm-9">
 				@foreach (Reservation reservation in Model.Reservation)
 				{
-				    <span>@reservation.Start - @reservation.End</span><br/>
+				    <span>@reservation.Start.Day.@reservation.Start.Month - @reservation.End.Day.@reservation.End.Month.@reservation.End.Year</span><br/>
 				}
             </dd>
         }
